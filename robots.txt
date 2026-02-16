@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+
+Disallow: /keifcreadmin159357846s3kdv.html 
+
+
+Sitemap: https://timetable-site.onrender.com/sitemap.xml
+
+
+
+

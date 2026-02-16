@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>管理ページ（自分用）</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    body{font-family:system-ui, -apple-system, "Segoe UI", sans-serif; margin:24px; line-height:1.6;}
+    .box{max-width:720px; margin:auto; padding:18px; border:1px solid #ddd; border-radius:12px;}
+    input{padding:10px; width:100%; box-sizing:border-box; margin:8px 0;}
+    button{padding:10px 14px; cursor:pointer;}
+    .muted{color:#666; font-size:14px;}
+    .hidden{display:none;}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>管理ページ（自分用）</h1>
+    <p class="muted">※簡易ロックです。本格的に守るなら「外部の管理画面」か「認証付きWebアプリ化」が必要です。</p>
+
+    <div id="login">
+      <p>パスワードを入力してください。</p>
+      <input id="pw" type="password" placeholder="Password" />
+      <button id="btn">ログイン</button>
+      <p id="msg" class="muted"></p>
+    </div>
+
+    <div id="content" class="hidden">
+      <h2>確認リンク</h2>
+      <ul>
+        <li><a href="/" target="_blank" rel="noopener">トップページ</a></li>
+        <li><a href="/sitemap.xml" target="_blank" rel="noopener">sitemap.xml</a></li>
+        <li><a href="/robots.txt" target="_blank" rel="noopener">robots.txt</a></li>
+      </ul>
+
+      <h2>アクセス数の確認</h2>
+
+		<ul>
+		  <li><a href="https://www.google.com/webmasters/tools/" target="_blank" rel="noopener">Google Search Console</a></li>
+		  <li><a href="https://timetable-site.goatcounter.com/" target="_blank" rel="noopener">GoatCounter Dashboard</a></li>
+		  <li><a href="https://dashboard.render.com/" target="_blank" rel="noopener">Render Dashboard</a></li>
+		</ul>
+      <button id="logout">ログアウト</button>
+    </div>
+  </div>
+
+  <script>
+    const PASSWORD = "password01235"; // ←★★★★★★★★★★★★★★★★ここを書き換え
+    const KEY = "admin_ok_v1";
+
+    const login = document.getElementById("login");
+    const content = document.getElementById("content");
+    const msg = document.getElementById("msg");
+
+    function showContent() {
+      login.classList.add("hidden");
+      content.classList.remove("hidden");
+    }
+    function showLogin() {
+      content.classList.add("hidden");
+      login.classList.remove("hidden");
+    }
+
+// すでにログイン済みなら表示（←毎回聞くなら不要）
+// if (localStorage.getItem(KEY) === "1") showContent();
+
+document.getElementById("btn").addEventListener("click", () => {
+  const v = (document.getElementById("pw").value || "").trim();
+  if (v === PASSWORD) {
+    msg.textContent = "";
+    showContent();
+  } else {
+    msg.textContent = "パスワードが違います。";
+  }
+});
+
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem(KEY);
+      showLogin();
+    });
+  </script>
+</body>
+</html>
