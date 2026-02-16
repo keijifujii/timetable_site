@@ -3,10 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>時間割作成システム（試行公開）</title>
-  <meta name="description" content="教員禁則・同時展開・連続授業・固定条件を満たし、約30〜60秒で自動生成する高校時間割編成システム（試行公開）。" />
+
+  <!-- ===== SEO: 基本 ===== -->
+  <title>高校向け時間割作成システム｜教員禁則・同時展開・連続授業に対応｜Keif Timetable（試行公開）</title>
+  <meta name="description" content="教員禁則・同時展開・連続授業・固定条件を満たし、週30時間規模なら約30〜60秒で自動生成する高校向け時間割編成システム（試行公開）。" />
+
+  <!-- ★重要：公開URLに置換（末尾スラッシュ推奨） -->
+  <link rel="canonical" href="YOUR_SITE_URL" />
+
+  <!-- インデックス制御（通常は index,follow でOK） -->
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+  <!-- ===== OGP（SNS共有時の表示） ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:title" content="高校向け時間割作成システム｜Keif Timetable（試行公開）" />
+  <meta property="og:description" content="教員禁則・同時展開・連続授業・固定条件を満たし、週30時間規模なら約30〜60秒で自動生成。" />
+  <meta property="og:url" content="YOUR_SITE_URL" />
+  <!-- ★OGP画像（推奨：1200×630）。無ければ一旦 screen-06.png を使う -->
+  <meta property="og:image" content="YOUR_SITE_URLassets/images/screen-06.png" />
+
+  <!-- ===== Twitterカード ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="高校向け時間割作成システム｜Keif Timetable（試行公開）" />
+  <meta name="twitter:description" content="教員禁則・同時展開・連続授業・固定条件を満たし、30〜60秒で自動生成。" />
+  <meta name="twitter:image" content="YOUR_SITE_URLassets/images/screen-06.png" />
+
+  <!-- ===== 検索結果の見栄え強化（構造化データ） ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Keif Timetable",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "教員禁則・同時展開・連続授業・固定条件を満たし、週30時間規模なら約30〜60秒で自動生成する高校向け時間割編成システム（試行公開）。",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "藤井 啓二"
+    },
+    "url": "YOUR_SITE_URL"
+  }
+  </script>
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
+  <!-- ===== アクセス解析：GoatCounter ===== -->
+<script
+  data-goatcounter="https://YOUR_GOATCOUNTER_ID.goatcounter.com/count"
+  async
+  src="//gc.zgo.at/count.js"></script>
+
+
+
 
 <body>
 <div class="wrap">
@@ -23,47 +78,43 @@
   </header>
 
   <!-- Hero -->
-	<section class="hero">
-	  <div class="hero-grid">
-	    <div>
-	      <h1>教務の負担を減らす、<br>新しい時間割設計。</h1>
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>教務の負担を減らす、<br>新しい時間割設計。</h1>
 
-	      <p class="lead">
-	        <strong>これまでの時間割作成、最後のコマ入れ完了までに何時間費やしてますか?</strong><br>
-	        このシステムなら複雑な条件を、一括で最適化。<br>
-	        教員禁則・同時展開・連続授業・固定条件を満たし、<strong>週30時間規模なら約30〜60秒</strong>で完全に埋まったクラス・教員時間割を整えて返します。
-	      </p>
+        <p class="lead">
+          <strong>これまでの時間割作成、最後のコマ入れ完了までに何時間費やしてますか?</strong><br>
+          このシステムなら複雑な条件を、一括で最適化。<br>
+          教員禁則・同時展開・連続授業・固定条件を満たし、<strong>週30時間規模なら約30〜60秒</strong>で完全に埋まったクラス・教員時間割を整えて返します。
+        </p>
 
-			<div class="chips" aria-label="主な特徴">
-			  <div class="chip"
-			       title="ネットワーク環境に左右されますが、開発側で実施した時は30h-総合学科高校35秒、31h-専門学科高校1分10秒でした。システム仕様上、最大1時間まで処理待機が可能です。">
-			    ⏱ 週30時間規模：30〜60秒
-			  </div>
+        <div class="chips" aria-label="主な特徴">
+          <div class="chip"
+               title="ネットワーク環境に左右されますが、開発側で実施した時は30h-総合学科高校35秒、31h-専門学科高校1分10秒でした。システム仕様上、最大1時間まで処理待機が可能です。">
+            ⏱ 週30時間規模：30〜60秒
+          </div>
 
-			  <div class="chip"
-			       title="不具合やご要望の連絡を受けて改良を行うと、すぐに反映されます。デスクトップアプリをインストールする手間が省けます。">
-			    🌐 Webアプリ：導入・改良の反映が迅速
-			  </div>
+          <div class="chip"
+               title="不具合やご要望の連絡を受けて改良を行うと、すぐに反映されます。デスクトップアプリをインストールする手間が省けます。">
+            🌐 Webアプリ：導入・改良の反映が迅速
+          </div>
 
-			  <div class="chip"
-			       title="利用年度のインポートファイルは flat_records.csv だけです。設定方法は画面下の「flat_records.csv 作成・入力ガイド」を参照ください。">
-			    📄 入力はflat_records.csv 1つファイルのみ
-			  </div>
-			</div>
+          <div class="chip"
+               title="利用年度のインポートファイルは flat_records.csv だけです。設定方法は画面下の「flat_records.csv 作成・入力ガイド」を参照ください。">
+            📄 入力はflat_records.csv 1つファイルのみ
+          </div>
+        </div>
 
+        <div class="cta" role="group" aria-label="主な操作">
+          <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">🔍</span> デモアカウントで体験・操作説明
+          </a>
 
-	      <div class="cta" role="group" aria-label="主な操作">
-	        <!-- ここを色付き(primary)にする：デモ説明PDFへ -->
-	        <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener">
-	          <span class="icon" aria-hidden="true">🔍</span> デモアカウントで体験・操作説明
-	        </a>
-
-			  <!-- ★追加：サンプルCSV ZIP ダウンロード -->
-			  <a class="btn" href="assets/csv/csv.zip" download>
-			    <span class="icon" aria-hidden="true">📦</span> デモ用サンプルCSV（ZIP）
-			  </a>
-
-	      </div>
+          <a class="btn" href="assets/csv/csv.zip" download>
+            <span class="icon" aria-hidden="true">📦</span> デモ用サンプルCSV（ZIP）
+          </a>
+        </div>
 
 	      <p class="small">
 	        <!--※ デモは <code>assets/pdf/demo_account_guide.pdf</code> にPDFを置くだけでOK（リンクはこのまま使えます）。<br>-->
