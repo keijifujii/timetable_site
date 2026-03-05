@@ -3,65 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- ===== SEO: 基本 ===== -->
-  <title>高校向け時間割作成システム｜教員禁則・同時展開・連続授業に対応｜Keif Timetable（試行公開）</title>
-  <meta name="description" content="教員禁則・同時展開・連続授業・固定条件を満たし、週30時間規模なら約30〜60秒で自動生成する高校向け時間割編成システム（試行公開）。" />
-
-  <!-- ★重要：公開URLに置換（末尾スラッシュ推奨） -->
-  <link rel="canonical" href="YOUR_SITE_URL" />
-
-  <!-- インデックス制御（通常は index,follow でOK） -->
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-
-  <!-- ===== OGP（SNS共有時の表示） ===== -->
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ja_JP" />
-  <meta property="og:title" content="高校向け時間割作成システム｜Keif Timetable（試行公開）" />
-  <meta property="og:description" content="教員禁則・同時展開・連続授業・固定条件を満たし、週30時間規模なら約30〜60秒で自動生成。" />
-  <meta property="og:url" content="YOUR_SITE_URL" />
-  <!-- ★OGP画像（推奨：1200×630）。無ければ一旦 screen-06.png を使う -->
-  <meta property="og:image" content="YOUR_SITE_URLassets/images/screen-06.png" />
-
-  <!-- ===== Twitterカード ===== -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="高校向け時間割作成システム｜Keif Timetable（試行公開）" />
-  <meta name="twitter:description" content="教員禁則・同時展開・連続授業・固定条件を満たし、30〜60秒で自動生成。" />
-  <meta name="twitter:image" content="YOUR_SITE_URLassets/images/screen-06.png" />
-
-  <!-- ===== 検索結果の見栄え強化（構造化データ） ===== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Keif Timetable",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "教員禁則・同時展開・連続授業・固定条件を満たし、週30時間規模なら約30〜60秒で自動生成する高校向け時間割編成システム（試行公開）。",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "JPY"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "藤井 啓二"
-    },
-    "url": "YOUR_SITE_URL"
-  }
-  </script>
-
+  <title>時間割作成システム（試行公開）</title>
+  <meta name="description" content="教員禁則・同時展開・連続授業・固定条件を満たし、約30〜60秒で自動生成する高校時間割編成システム（試行公開）。" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-
-  <!-- ===== アクセス解析：GoatCounter ===== -->
-<script
-  data-goatcounter="https://YOUR_GOATCOUNTER_ID.goatcounter.com/count"
-  async
-  src="//gc.zgo.at/count.js"></script>
-
-
-
 
 <body>
 <div class="wrap">
@@ -78,47 +23,52 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-grid">
-      <div>
-        <h1>教務の負担を減らす、<br>新しい時間割設計。</h1>
+	<section class="hero">
+	  <div class="hero-grid">
+	    <div>
+	      <h1>教務の負担を減らす、<br>新しい時間割設計。</h1>
 
-        <p class="lead">
-          <strong>これまでの時間割作成、最後のコマ入れ完了までに何時間費やしてますか?</strong><br>
-          このシステムなら複雑な条件を、一括で最適化。<br>
-          教員禁則・同時展開・連続授業・固定条件を満たし、<strong>週30時間規模なら約30〜60秒</strong>で完全に埋まったクラス・教員時間割を整えて返します。
-        </p>
+	      <p class="lead">
+	        <strong>これまでの時間割作成、最後のコマ入れ完了までに何時間費やしていましたか?</strong><br>
+	        このシステムなら教員禁則・同時展開・連続授業・固定等の複雑な制約条件を踏まえて、
+	        理数最適化による自動コマ入れを行い、<strong>約30秒秒程度で残りコマなしの完成したクラス・教員時間割を返します。</strong>
+	      </p>
 
-        <div class="chips" aria-label="主な特徴">
-          <div class="chip"
-               title="ネットワーク環境に左右されますが、開発側で実施した時は30h-総合学科高校35秒、31h-専門学科高校1分10秒でした。システム仕様上、最大1時間まで処理待機が可能です。">
-            ⏱ 週30時間規模：30〜60秒
-          </div>
+			<div class="chips" aria-label="主な特徴">
+			  <div class="chip"
+			       title="ネットワーク環境に左右されますが、開発側で実施した時は30h-総合学科高校35秒、31h-専門学科高校1分10秒でした。システム仕様上、最大1時間まで処理待機が可能です。">
+			    ⏱ 週30時間規模：30〜60秒
+			  </div>
 
-          <div class="chip"
-               title="不具合やご要望の連絡を受けて改良を行うと、すぐに反映されます。デスクトップアプリをインストールする手間が省けます。">
-            🌐 Webアプリ：導入・改良の反映が迅速
-          </div>
+			  <div class="chip"
+			       title="不具合やご要望の連絡を受けて改良を行うと、すぐに反映されます。デスクトップアプリをインストールする手間が省けます。">
+			    🌐 Webアプリ：導入・改良の反映が迅速
+			  </div>
 
-          <div class="chip"
-               title="利用年度のインポートファイルは flat_records.csv だけです。設定方法は画面下の「flat_records.csv 作成・入力ガイド」を参照ください。">
-            📄 入力はflat_records.csv 1つファイルのみ
-          </div>
-        </div>
+			  <div class="chip"
+			       title="利用年度のインポートファイルは flat_records.csv だけです。設定方法は画面下の「flat_records.csv 作成・入力ガイド」を参照ください。">
+			    📄 入力はflat_records.csv 1つファイルのみ
+			  </div>
+			</div>
 
-        <div class="cta" role="group" aria-label="主な操作">
-          <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener">
-            <span class="icon" aria-hidden="true">🔍</span> デモアカウントで体験・操作説明
-          </a>
 
-          <a class="btn" href="assets/csv/csv.zip" download>
-            <span class="icon" aria-hidden="true">📦</span> デモ用サンプルCSV（ZIP）
-          </a>
-        </div>
+	      <div class="cta" role="group" aria-label="主な操作">
+	        <!-- ここを色付き(primary)にする：デモ説明PDFへ -->
+	        <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener">
+	          <span class="icon" aria-hidden="true">🔍</span> デモアカウントで体験・操作説明
+	        </a>
+
+			  <!-- ★追加：サンプルCSV ZIP ダウンロード -->
+			  <a class="btn" href="assets/csv/csv.zip" download>
+			    <span class="icon" aria-hidden="true">📦</span> デモ用サンプルCSV（ZIP）
+			  </a>
+
+	      </div>
 
 	      <p class="small">
 	        <!--※ デモは <code>assets/pdf/demo_account_guide.pdf</code> にPDFを置くだけでOK（リンクはこのまま使えます）。<br>-->
-            ※ デモ用でログインし、実データに近い形で動作確認できます。体験（20〜30分）
+            ※ デモ用でログインし、実データに近い形で動作確認できます。（体験時間は１０分程度）体験用アカウントは体験操作声明に記載
+            
 	      </p>
 	    </div>
 
@@ -141,7 +91,7 @@
 	    <h2>できること</h2>
 	    <ul>
 	      <li>教員禁則・同時展開・連続授業・固定条件を満たす</li>
-	      <li>一括自動生成（微調整型ではありません）</li>
+	      <li>一括自動生成(微調整型ではありません)</li>
 	      <li>生成 → 表示 → 確認 → 保存までを一連で</li>
 	    </ul>
 	  </div>
@@ -159,7 +109,7 @@
 	  <div class="card">
 	    <h2>現時点の制約（次年度に向け改良予定）</h2>
 	    <ul>
-	      <li>教室情報は含みません</li>
+	      <li>教室割当機能を追加（R8年３月）</li>
 	      <li>完成後の微調整・修正機能はありません</li>
 	      <li>週あたり最大35時間まで対応</li>
 	    </ul>
@@ -191,6 +141,20 @@
 
   <div class="gallery gallery-6">
     <!-- 1) 事前設定・初期化 -->
+    <a class="figure zoomable" href="#img-00">
+      <img src="assets/images/screen-00.png" alt="入力画面">
+      <div class="figcap">ログイン・新規利用校登録画面</div>
+    </a>
+
+    <!-- ライトボックス（拡大表示） -->
+    <div id="img-00" class="lightbox" aria-label="入力画面 拡大表示">
+      <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+      <div class="lightbox__panel" role="dialog" aria-modal="true">
+        <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+        <img src="assets/images/screen-00.png" alt="入力画面（拡大）">
+      </div>
+    </div>
+    <!-- 1) 事前設定・初期化 -->
     <a class="figure zoomable" href="#img-01">
       <img src="assets/images/screen-01.png" alt="入力画面">
       <div class="figcap">事前設定・全データ初期化ボタンはflat_records.csvの再インポート、教員禁則情報更新のたびに実行します。</div>
@@ -204,7 +168,7 @@
         <img src="assets/images/screen-01.png" alt="入力画面（拡大）">
       </div>
     </div>
-
+    
     <!-- 2) データ取込み -->
     <a class="figure zoomable" href="#img-02">
       <img src="assets/images/screen-02.png" alt="データ取込み画面">
@@ -279,6 +243,36 @@
         <img src="assets/images/screen-06.png" alt="時間割作成/出力画面（拡大）">
       </div>
     </div>
+    
+    <!-- 7)  時間割作成/出力 -->
+    <a class="figure zoomable" href="#img-07">
+      <img src="assets/images/screen-07.png" alt="時間割当1画面">
+      <div class="figcap"> 時間割作成後の本時間割に登録して教室割当に入ります。単コマ一括挿入、手動で教室設定、選択教室の自動配置、調整と進みます。</div>
+    </a>
+
+    <!-- ライトボックス（拡大表示） -->
+    <div id="img-07" class="lightbox" aria-label="時間割当画面 拡大表示">
+      <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+      <div class="lightbox__panel" role="dialog" aria-modal="true">
+        <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+        <img src="assets/images/screen-07.png" alt="時間割当画面（拡大）">
+      </div>
+    </div>
+    
+    <!-- 8)  教室割当作成/出力 -->
+    <a class="figure zoomable" href="#img-08">
+      <img src="assets/images/screen-08.png" alt="時間割作成/出力画面">
+      <div class="figcap"> 図は調整段階　自動配置後に総合学科等複雑な選択群の場合、数件は曜日により教室が異なる配置になるので修正　科目一覧が抽出され色付き表示で作業しやすい。</div>
+    </a>
+
+    <!-- ライトボックス（拡大表示） -->
+    <div id="img-08" class="lightbox" aria-label="時間割当調整段階画面 拡大表示">
+      <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+      <div class="lightbox__panel" role="dialog" aria-modal="true">
+        <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+        <img src="assets/images/screen-08.png" alt="時間割当調整段階画面（拡大）">
+      </div>
+    </div>
   </div>
 
   <p class="small" style="margin-top:10px;">
@@ -291,24 +285,16 @@
 <section class="section">
   <div class="card">
     <h2>システム活用に向けて</h2>
-      <!-- ログイン（通常色） -->
-      <a class="btn"
-         href="https://keifcreation-project.onrender.com/"
-         target="_blank"
-         rel="noopener noreferrer">
-         🔐 ログインページへ進む
-      </a>
-      
- 
+
 
     <p class="muted">
-      デモアカウントで体験されたら、自校の新規利用校登録と今年度のflat_records.csvを作成され実証ください。
-      次年度活用の大きなステップとなるでしょう。
+      デモアカウント（体験・操作説明に記載）でぜひ体験ください。４月当初、教務事務の業務軽減に
+      大きなステップとなることでしょう。
     </p>
 
     <div class="cta">
 
-      <!-- ★ 最重要：ガイド（強調色） -->
+      <!-- ★ 最重要：ガイド（強調色）フラット作成ガイド -->
       <a class="btn guide"
          href="assets/pdf/flat_records_guide.pdf"
          target="_blank"
@@ -316,9 +302,35 @@
          📘 flat_records.csv 作成ガイド
       </a>
 
+        <!-- 青強調：デモ説明PDFへ -->
+        <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">🔍</span> デモアカウントで体験・操作説明
+        </a>
 
+
+      <a class="btn guide"
+         href="assets/csv/csv.zip"
+         target="_blank"
+         rel="noopener noreferrer">
+         📦 デモ用サンプルCSV（ZIP）
+      </a>
+      
+        <!-- 青強調：デモ説明PDFへ -->
+        <a class="btn primary" href="assets/csv/classrooms.zip" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">🔍</span> 教室割当機能体験CSV
+        </a>
+      
       
       <div class="cta-break"></div>  <!-- 改行 効果なし-->
+      
+      
+      <!-- ログイン（通常色） -->
+      <a class="btn"
+         href="https://keifcreation-project.onrender.com/"
+         target="_blank"
+         rel="noopener noreferrer">
+         🔐 ログインページへ進む
+      </a>
       
       
       <!-- 問い合わせ（通常色） -->
@@ -346,8 +358,8 @@
 
 
     <footer class="footer">
-      <div>開発者：藤井 啓二（高等学校教員）／ <a href="mailto:keifcreation3@gmail.com">keifcreation3@gmail.com</a></div>
-      <div class="small">© 2025 keifcreation　　　試行公開版 / 表示内容は改善中</div>
+      <div>開発者：藤井 啓二（高等学校　教諭）／ <a href="mailto:keifcreation3@gmail.com">keifcreation3@gmail.com</a></div>
+      <div class="small">© 2025 keifcreation　試行公開版 </div>
     </footer>
   </div>
 
