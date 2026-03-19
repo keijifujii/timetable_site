@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>時間割作成とは｜高校・中学校向け時間割作成システム Keif Timetable</title>
+  <meta name="description" content="高校・中学校の時間割作成で起こりやすい悩みや、時間割作成システムが何を自動で調整するのかを分かりやすく説明します。教員条件、授業の重なり、同時展開、連続授業などの条件にも対応します。">
+  <meta name="keywords" content="時間割作成,時間割作成システム,時間割自動作成,高校,中学校,教務,教員条件,同時展開,連続授業">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://timetable-site.onrender.com/timetable.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="時間割作成とは｜高校・中学校向け時間割作成システム Keif Timetable">
+  <meta property="og:description" content="時間割作成で困りやすいことと、システムでできることを分かりやすく紹介します。">
+  <meta property="og:url" content="https://timetable-site.onrender.com/timetable.html">
+  <meta property="og:site_name" content="Keif Timetable">
+
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #1f2a37;
+      --sub: #4b5563;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --line: #dbe3ee;
+      --soft: #eef4ff;
+      --ok: #0f766e;
+      --warn-bg: #fff8e8;
+      --warn-text: #8a5b00;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .site-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero {
+      padding: 56px 0 34px;
+      background: linear-gradient(180deg, #f8fbff 0%, #f2f7ff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(1.95rem, 4vw, 3rem);
+      line-height: 1.35;
+      margin: 0 0 18px;
+    }
+
+    .lead {
+      font-size: 1.06rem;
+      color: var(--sub);
+      max-width: 900px;
+      margin: 0;
+    }
+
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: #f8fbff;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 36px 0 72px;
+    }
+
+    section {
+      margin-top: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.04);
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      margin: 0 0 14px;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      margin: 0 0 8px;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .feature p:last-child,
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .points {
+      padding-left: 1.2em;
+      margin: 0;
+    }
+
+    .points li {
+      margin-bottom: 8px;
+    }
+
+    .note {
+      background: #f9fbff;
+      border-left: 4px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 10px;
+      color: var(--sub);
+    }
+
+    .warn {
+      background: var(--warn-bg);
+      border-left: 4px solid #f5b301;
+      padding: 14px 16px;
+      border-radius: 10px;
+      color: var(--warn-text);
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .compare .box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      background: #fff;
+    }
+
+    .compare .manual {
+      background: #fffdf7;
+    }
+
+    .compare .system {
+      background: #f5fbf9;
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .label-manual {
+      background: #fff3cd;
+      color: #8a5b00;
+    }
+
+    .label-system {
+      background: #dff7ef;
+      color: var(--ok);
+    }
+
+    .faq-item + .faq-item {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .cta {
+      text-align: center;
+      padding: 34px 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+
+    .cta p {
+      max-width: 760px;
+      margin: 0 auto 16px;
+      color: var(--sub);
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--sub);
+      background: #fff;
+    }
+
+    .small {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 800px) {
+      .grid,
+      .compare {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .card,
+      .feature {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="site-name">Keif Timetable</div>
+      <nav class="nav-links" aria-label="主要リンク">
+        <a href="index.html">トップページ</a>
+        <a href="optimization.html">数理最適化でできること</a>
+        <a href="https://timetable-site.onrender.com/assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener noreferrer">資料を見る</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">高校・中学校向け 時間割作成システム</div>
+      <h1>時間割作成で困りやすいことと、システムでできること</h1>
+      <p class="lead">
+        高校や中学校の時間割作成は、単に授業を並べる作業ではありません。
+        教員の担当、授業時間数、同じ時間に重ねられない授業、連続で入れたい授業、
+        同時展開、曜日の偏りなど、さまざまな条件を見ながら全体を整える必要があります。
+        このページでは、時間割作成で困りやすい点と、それを時間割作成システムがどう支えるのかを、
+        できるだけ分かりやすく紹介します。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="index.html">トップページを見る</a>
+        <a class="btn btn-secondary" href="optimization.html">数理最適化でできることを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+
+      <section class="card">
+        <h2>時間割作成は、なぜ大変なのか</h2>
+        <p>
+          時間割作成は、学校全体の授業を無理なく並べる仕事です。
+          ただ空いている時間に入れていけばよいわけではなく、
+          教員の都合、授業の組み合わせ、学年やクラスの事情などを同時に見ながら決める必要があります。
+        </p>
+        <p>
+          しかも、1か所を直すと別の場所にも影響が出やすく、
+          最後まで確認と調整が続きやすいのが難しいところです。
+        </p>
+      </section>
+
+      <section>
+        <div class="card">
+          <h2>時間割作成で困りやすいこと</h2>
+          <div class="grid">
+            <div class="feature">
+              <h3>授業が重ならないようにしないといけない</h3>
+              <p>
+                同じクラスで同じ時間に複数の授業を入れることはできません。
+                また、同じ教員が同じ時間に複数のクラスへ入ることもできません。
+              </p>
+            </div>
+
+            <div class="feature">
+              <h3>教員ごとの事情を反映しないといけない</h3>
+              <p>
+                教員には担当学年、担当科目、会議、出張、校務分掌、非常勤の来校日など、
+                さまざまな条件があります。これを見落とさずに時間割へ反映する必要があります。
+              </p>
+            </div>
+
+            <div class="feature">
+              <h3>連続で置きたい授業がある</h3>
+              <p>
+                実験、実習、演習、芸術科目などでは、1時間ずつ分けるより、
+                連続で配置したい場合があります。逆に、同じ科目が続きすぎないようにしたいこともあります。
+              </p>
+            </div>
+
+            <div class="feature">
+              <h3>同時に動かしたい授業がある</h3>
+              <p>
+                選択科目や習熟度別授業では、複数の授業を同じ時間帯に動かしたいことがあります。
+                こうした条件は、全体の組み方に大きく影響します。
+              </p>
+            </div>
+
+            <div class="feature">
+              <h3>曜日の偏りが出やすい</h3>
+              <p>
+                特定の科目がある曜日だけに集中したり、特定のクラスだけ負担が偏ったりすることがあります。
+                見た目では気づきにくい偏りも、全体を通して確認する必要があります。
+              </p>
+            </div>
+
+            <div class="feature">
+              <h3>一部を直すと他にも影響が出る</h3>
+              <p>
+                1か所だけ修正したつもりでも、別の教員や別のクラスにも影響が広がることがあります。
+                そのたびに全体の見直しが必要になり、負担が大きくなります。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>時間割作成システムが助けること</h2>
+        <p>
+          時間割作成システムは、こうした複数の条件を整理しながら、
+          時間割案を作る手助けをします。すべてを機械任せにするのではなく、
+          複雑な調整の部分を支える道具として使うイメージです。
+        </p>
+        <ul class="points">
+          <li>授業や教員の重なりを防ぎながら組む</li>
+          <li>教員条件や授業条件を見ながら全体を調整する</li>
+          <li>条件変更後の再作成をしやすくする</li>
+          <li>たたき台づくりや確認負担を減らす</li>
+          <li>手作業だけでは見落としやすい矛盾を見つけやすくする</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>「制約」とは何か</h2>
+        <p>
+          時間割作成システムでは、学校ごとの条件を「制約」として扱います。
+          ここでいう制約とは、難しい専門用語ではなく、
+          <strong>時間割を作るときに守りたい条件</strong> のことです。
+        </p>
+        <div class="note">
+          つまり制約とは、現場で普段考えている「こうしてほしい」「これは避けたい」を、
+          システムに伝えるための整理された条件です。
+        </div>
+        <ul class="points" style="margin-top: 14px;">
+          <li>この教員はこの時間に授業を入れない</li>
+          <li>この授業は連続で入れたい</li>
+          <li>この2つの授業は同じ時間に置きたい</li>
+          <li>この科目は曜日が偏りすぎないようにしたい</li>
+          <li>同じクラスで授業が重ならないようにしたい</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>作成実行のとき、システムは何をしているのか</h2>
+        <p>
+          作成実行をすると、システムは授業をただ順番に並べているわけではありません。
+          あらかじめ設定された条件を見ながら、
+          「どの授業を」「どのクラスに」「どの時間帯へ」
+          配置できるかを全体で調整しています。
+        </p>
+        <p>
+          人が手作業で何度も見比べていることを、
+          システムが条件に沿って整理しながら進めている、というイメージです。
+        </p>
+        <div class="warn">
+          条件が多すぎたり、互いにぶつかっていたりすると、
+          すべてを同時に満たすのが難しい場合もあります。
+          そのため、学校ごとに「特に大事にしたい条件」を整理しておくことが役立ちます。
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>手作業との違い</h2>
+        <div class="compare">
+          <div class="box manual">
+            <div class="label label-manual">手作業中心</div>
+            <p>
+              条件が少ないうちは対応できますが、教員条件、同時展開、
+              連続授業、曜日の偏り、学年ごとの事情が重なると、
+              全体を見ながら調整する負担が大きくなります。
+            </p>
+            <p>
+              一部を直すだけでも別の場所へ影響が広がり、
+              再確認の手間が増えやすいのが難しい点です。
+            </p>
+          </div>
+
+          <div class="box system">
+            <div class="label label-system">時間割作成システム</div>
+            <p>
+              条件を整理して入力すれば、重なり回避や条件充足を見ながら
+              時間割案を作りやすくなります。
+            </p>
+            <p>
+              修正後の再計算もしやすく、
+              教務担当者の負担軽減につながります。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>こんな学校に向いています</h2>
+        <ul class="points">
+          <li>毎年、時間割作成にかなり時間がかかる</li>
+          <li>教員条件が多く、調整が複雑になりやすい</li>
+          <li>選択科目や同時展開がある</li>
+          <li>実習・演習・芸術科目などで連続授業がある</li>
+          <li>一部修正のたびに全体調整が必要になる</li>
+          <li>時間割作成の負担を少しでも減らしたい</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>よくある疑問</h2>
+
+        <div class="faq-item">
+          <h3>システムを使えば、必ず理想どおりの時間割になりますか。</h3>
+          <p>
+            条件の内容によっては、すべてを同時に満たすのが難しい場合があります。
+            そのため、どの条件を特に重視するかを考えながら使うことが大切です。
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>小規模校や中学校でも意味がありますか。</h3>
+          <p>
+            はい。大規模校ほど複雑さは増しますが、
+            中学校でも教員条件や授業配置の都合があるため、
+            調整支援の効果は十分あります。
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>最終判断は誰が行いますか。</h3>
+          <p>
+            最終判断は学校側です。
+            システムは時間割案を作る支援役として使い、
+            必要な確認や修正を人が行う形が現実的です。
+          </p>
+        </div>
+      </section>
+
+<section class="cta">
+  <h2>時間割作成の仕組みを、もう少し詳しく見る</h2>
+  <p>
+    数理最適化による時間割作成システムが、
+    複数の条件をどう整理しているのかを、別ページで分かりやすく説明しています。
+  </p>
+  <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+    <a class="btn btn-primary" href="optimization.html">数理最適化でできることを見る</a>
+    <a class="btn btn-secondary" href="index.html">トップページを見る</a>
+  </div>
+</section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container small">
+      © Keif Timetable / keifcreation
+    </div>
+  </footer>
+</body>
+</html>
