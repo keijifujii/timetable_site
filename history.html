@@ -7,6 +7,17 @@
   <meta name="description" content="Keif Timetable の改良履歴一覧です。機能追加、不具合修正、表示改善などの更新内容を確認できます。" />
   <link rel="stylesheet" href="css/style.css" />
 
+
+<script>
+  (function () {
+    const params = new URLSearchParams(location.search);
+    if (params.get('embed') === '1') {
+      document.documentElement.classList.add('embed-mode');
+    }
+  })();
+</script>
+
+
 </head>
 
 <body>
@@ -53,7 +64,7 @@
                 </tr>
                 <tr>
                   <td class="history-date">2026-03-20</td>
-                  <td class="history-kind">制約管理</td>
+                  <td class="history-kind">制約設定</td>
                   <td>教員情報の禁則チェックを更新すれば時間割作成に即、反映するようにしました。これにより初期化する必要なく禁則制約を変更できます。</td>
                 </tr>
                 <tr>
@@ -231,6 +242,62 @@
         font-size: 0.95rem;
       }
     }
+
+
+
+	/* 埋め込み表示用 */
+	html.embed-mode,
+	html.embed-mode body {
+	  margin: 0;
+	  padding: 0;
+	  background: transparent;
+	}
+
+	html.embed-mode .topbar,
+	html.embed-mode .history-header,
+	html.embed-mode .history-actions,
+	html.embed-mode .footer {
+	  display: none;
+	}
+
+	html.embed-mode .wrap {
+	  width: 100%;
+	  max-width: none;
+	  margin: 0;
+	  padding: 0;
+	}
+
+	html.embed-mode .history-page {
+	  margin-top: 0;
+	}
+
+	html.embed-mode .card {
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  box-shadow: none;
+	  background: transparent;
+	}
+
+	html.embed-mode .history-box {
+	  margin-top: 0;
+	  border: 0;
+	  border-radius: 0;
+	  background: transparent;
+	}
+
+	html.embed-mode .history-scroll {
+	  max-height: 360px;
+	  overflow-y: auto;
+	}
+
+	html.embed-mode .history-table {
+	  min-width: 0;
+	  width: 100%;
+	}
+
+
+
   </style>
 
 
