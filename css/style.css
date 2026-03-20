@@ -483,3 +483,14 @@ code{
 }
 
 
+.hero-eyebrow{
+  display:inline-block;
+  margin:0 0 12px 0;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#eef4ff;
+  color:#1d4ed8;
+  font-size:.92rem;
+  font-weight:700;
+}
+

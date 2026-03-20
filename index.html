@@ -4,9 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
- <title>数理最適化による時間割作成システム 高校・中学校向け（試行公開）</title>
-<meta name="description" content="高校中学校の時間割作成を自動化するWebシステム。教員禁則・同時展開・連続授業・固定条件に対応し、複雑な時間割編成を短時間で作成できます。教務業務の負担軽減を目指した試行公開版です。" />
- 
+
+<title>数理最適化による時間割作成システム｜公式紹介・デモ体験｜高校・中学校向け</title>
+<meta name="description" content="高校・中学校の時間割作成を支援する、数理最適化による時間割作成システムの公式紹介ページです。教員禁則、同時展開、連続授業などの条件を踏まえて時間割を作成します。">
+
+
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -24,60 +27,62 @@
     <div class="badge"><span class="dot" aria-hidden="true"></span> 試行公開</div>
   </header>
 
+
+
+
   <!-- Hero -->
 	<section class="hero">
 	  <div class="hero-grid">
-	    <div>
-	      <h1>教務の負担を減らす、<br>新しい時間割設計。</h1>
+<div>
+  <p class="hero-eyebrow">公式紹介ページ｜高校・中学校向け 時間割作成システム</p>
 
-		<p class="lead">
-		  <strong>これまで高校・中学校の時間割作成に、何時間かかっていました?</strong><br>
-		  Keif Timetable は、教員禁則・同時展開・連続授業・固定条件などの複雑な条件を踏まえて、
-		  数理最適化により時間割を自動作成する高校向けWebシステムです。
-		  <strong>教務業務の負担軽減を目指し、約30〜60秒程度でクラス時間割・教員時間割を残りコマなしで完成させます。。</strong>
-		</p>
+  <h1>教務の負担を減らす、<br>新しい時間割設計。</h1>
+
+  <p class="lead">
+    <strong>これまで高校・中学校の時間割作成に、何時間かかっていましたか？</strong><br>
+    Keif Timetable は、教員禁則・同時展開・連続授業・固定条件などの複雑な条件を踏まえて、
+    数理最適化により時間割を自動作成する高校・中学校向けWebシステムです。
+    <strong>教務業務の負担軽減を目指し、約30〜60秒程度でクラス時間割・教員時間割を残りコマなしで完成させます。</strong>
+  </p>
+
+  <p class="small" style="margin-top:10px;">
+    公式紹介ページでは、システムの特徴、操作体験、時間割作成の考え方、関連資料をまとめて確認できます。
+  </p>
+
+  <div class="chips" aria-label="主な特徴">
+    <div class="chip"
+         title="ネットワーク環境に左右されますが、開発側で実施した時は30h-総合学科高校35秒、31h-専門学科高校1分10秒でした。システム仕様上、最大1時間まで処理待機が可能です。">
+      ⏱ 週30時間規模：30〜60秒
+    </div>
+
+    <div class="chip"
+         title="不具合やご要望の連絡を受けて改良を行うと、すぐに反映されます。デスクトップアプリをインストールする手間が省けます。">
+      🌐 Webアプリ：導入・改良の反映が迅速
+    </div>
+
+    <div class="chip"
+         title="利用年度のインポートファイルは flat_records.csv だけです。設定方法は画面下の「flat_records.csv 作成・入力ガイド」を参照ください。">
+      📄 入力はflat_records.csv 1つファイルのみ
+    </div>
+  </div>
+
+  <div class="cta" role="group" aria-label="主な操作">
+    <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true">🔍</span> デモアカウントで体験・操作説明
+    </a>
+
+    <a class="btn" href="assets/csv/csv.zip" download>
+      <span class="icon" aria-hidden="true">📦</span> デモ用サンプルCSV（ZIP）
+    </a>
+  </div>
+
+  <p class="small">
+    ※ デモ用でログインし、実データに近い形で動作確認できます。（体験時間は10分程度）ログインページ・体験用アカウントは体験操作説明に記載
+  </p>
+</div>
 
 
 
-
-
-			<div class="chips" aria-label="主な特徴">
-			  <div class="chip"
-			       title="ネットワーク環境に左右されますが、開発側で実施した時は30h-総合学科高校35秒、31h-専門学科高校1分10秒でした。システム仕様上、最大1時間まで処理待機が可能です。">
-			    ⏱ 週30時間規模：30〜60秒
-			  </div>
-
-			  <div class="chip"
-			       title="不具合やご要望の連絡を受けて改良を行うと、すぐに反映されます。デスクトップアプリをインストールする手間が省けます。">
-			    🌐 Webアプリ：導入・改良の反映が迅速
-			  </div>
-
-			  <div class="chip"
-			       title="利用年度のインポートファイルは flat_records.csv だけです。設定方法は画面下の「flat_records.csv 作成・入力ガイド」を参照ください。">
-			    📄 入力はflat_records.csv 1つファイルのみ
-			  </div>
-			</div>
-
-
-	      <div class="cta" role="group" aria-label="主な操作">
-	        <!-- ここを色付き(primary)にする：デモ説明PDFへ -->
-	        <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener">
-	          <span class="icon" aria-hidden="true">🔍</span> デモアカウントで体験・操作説明
-	        </a>
-
-			  <!-- ★追加：サンプルCSV ZIP ダウンロード -->
-			  <a class="btn" href="assets/csv/csv.zip" download>
-			    <span class="icon" aria-hidden="true">📦</span> デモ用サンプルCSV（ZIP）
-			  </a>
-
-	      </div>
-
-	      <p class="small">
-	        <!--※ デモは <code>assets/pdf/demo_account_guide.pdf</code> にPDFを置くだけでOK（リンクはこのまま使えます）。<br>-->
-            ※ デモ用でログインし、実データに近い形で動作確認できます。（体験時間は１０分程度）ログインページ・体験用アカウントは体験操作説明に記載
-            
-	      </p>
-	    </div>
 
 	    <!-- Main visual (optional) -->
 	    <figure class="figure">
