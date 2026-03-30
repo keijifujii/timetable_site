@@ -11,9 +11,19 @@
 <script>
   (function () {
     const params = new URLSearchParams(location.search);
-    if (params.get('embed') === '1') {
+    const isEmbed = params.get('embed') === '1';
+    if (isEmbed) {
       document.documentElement.classList.add('embed-mode');
     }
+
+    window.addEventListener('load', function () {
+      if (!isEmbed) return;
+      window.scrollTo(0, 0);
+      const scrollBox = document.querySelector('.history-scroll');
+      if (scrollBox) {
+        scrollBox.scrollTop = 0;
+      }
+    });
   })();
 </script>
 
