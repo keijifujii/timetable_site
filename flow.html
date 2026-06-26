@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>システム作業の流れ｜時間割作成システム Keif Timetable</title>
+  <meta name="description" content="Keif Timetable のシステム作業の流れを紹介します。高校・中学校向け時間割作成システムとして、事前設定、データ取込み、制約管理、事前チェック、時間割作成、登録後の調整・教室割当までを画面例つきで説明します。">
+  <meta name="robots" content="index,follow">
+  <meta property="og:site_name" content="Keif Timetable">
+  <meta property="og:title" content="システム作業の流れ｜時間割作成システム Keif Timetable">
+  <meta property="og:description" content="時間割作成システムの操作の流れを、画面例とともに分かりやすく紹介します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://timetable-site.onrender.com/flow.html">
+  <link rel="canonical" href="https://timetable-site.onrender.com/flow.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "システム作業の流れ",
+    "url": "https://timetable-site.onrender.com/flow.html",
+    "description": "Keif Timetable の時間割作成に関するシステム作業の流れを紹介するページです。"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --panel:#ffffff;
+      --text:#1f2937;
+      --muted:#4b5563;
+      --line:#dbe3ee;
+      --blue:#2563eb;
+      --blue-dark:#1d4ed8;
+      --soft:#eef4ff;
+      --shadow:0 12px 30px rgba(2,6,23,.06);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+      height:auto;
+    }
+
+    a{
+      color:var(--blue);
+      text-decoration:none;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    .wrap{
+      width:min(1160px, 92%);
+      margin:0 auto;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:18px 0 12px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo{
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:linear-gradient(135deg, #2563eb, #60a5fa);
+      box-shadow:0 0 0 6px rgba(37,99,235,.10);
+      flex:0 0 auto;
+    }
+
+    .brand-title{
+      font-weight:800;
+      font-size:1.08rem;
+      line-height:1.2;
+    }
+
+    .brand-subtitle{
+      color:var(--muted);
+      font-size:.94rem;
+      line-height:1.4;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      display:inline-block;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--text);
+      font-weight:600;
+      font-size:.94rem;
+      text-decoration:none;
+    }
+
+    .nav a:hover{
+      border-color:#bfd3ff;
+      background:#f8fbff;
+    }
+
+    .hero{
+      margin-top:10px;
+      background:linear-gradient(180deg, #f9fbff 0%, #eef4ff 100%);
+      border:1px solid var(--line);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+      padding:34px 28px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin:0 0 14px 0;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #cfe0ff;
+      color:var(--blue-dark);
+      font-size:.92rem;
+      font-weight:700;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(2rem, 4vw, 3rem);
+      line-height:1.3;
+      letter-spacing:.01em;
+    }
+
+    .lead{
+      margin:18px 0 0 0;
+      max-width:860px;
+      color:var(--muted);
+      font-size:1.03rem;
+    }
+
+    .hero-actions{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .btn.primary{
+      background:var(--blue);
+      border-color:var(--blue);
+      color:#fff;
+    }
+
+    .btn.primary:hover{
+      background:var(--blue-dark);
+      border-color:var(--blue-dark);
+      text-decoration:none;
+    }
+
+    .btn:hover{
+      background:#f8fbff;
+      text-decoration:none;
+    }
+
+    .section{
+      margin:34px 0 0;
+    }
+
+    .section-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+
+    .section-card h2{
+      margin:0 0 10px 0;
+      font-size:1.55rem;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    .flow-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .flow-chip{
+      padding:9px 14px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--blue-dark);
+      font-weight:700;
+      font-size:.92rem;
+      border:1px solid #d7e5ff;
+    }
+
+    .step-list{
+      display:grid;
+      gap:22px;
+    }
+
+    .step{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .step-inner{
+      display:grid;
+      grid-template-columns:minmax(280px, 440px) 1fr;
+      gap:0;
+      align-items:stretch;
+    }
+
+    .step-image{
+      background:#f8fbff;
+      border-right:1px solid var(--line);
+      padding:20px;
+    }
+
+    .step-image a{
+      display:block;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 8px 22px rgba(2,6,23,.08);
+    }
+
+    .step-image img{
+      width:100%;
+      background:#fff;
+    }
+
+    .step-body{
+      padding:22px 24px;
+    }
+
+    .step-no{
+      display:inline-block;
+      margin-bottom:10px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--blue-dark);
+      font-size:.88rem;
+      font-weight:800;
+    }
+
+    .step h3{
+      margin:0 0 10px 0;
+      font-size:1.3rem;
+      line-height:1.45;
+    }
+
+    .step p{
+      margin:0 0 12px 0;
+    }
+
+    .step ul{
+      margin:0;
+      padding-left:1.2em;
+      color:var(--muted);
+    }
+
+    .step li{
+      margin-bottom:7px;
+    }
+
+    .note{
+      margin-top:14px;
+      padding:14px 16px;
+      border-left:4px solid var(--blue);
+      background:#f8fbff;
+      border-radius:12px;
+      color:var(--muted);
+    }
+
+    .links-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    .link-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .link-card h3{
+      margin:0 0 8px 0;
+      font-size:1.08rem;
+    }
+
+    .link-card p{
+      margin:0 0 14px 0;
+      color:var(--muted);
+    }
+
+    .footer{
+      padding:36px 0 44px;
+      color:var(--muted);
+      font-size:.95rem;
+      text-align:center;
+    }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      display:none;
+      z-index:50;
+    }
+
+    .lightbox:target{
+      display:block;
+    }
+
+    .lightbox__bg{
+      position:absolute;
+      inset:0;
+      background:rgba(15,23,42,.72);
+    }
+
+    .lightbox__panel{
+      position:relative;
+      z-index:1;
+      width:min(1100px, calc(100vw - 24px));
+      margin:24px auto;
+      background:#fff;
+      border-radius:18px;
+      padding:14px;
+      box-shadow:0 20px 50px rgba(0,0,0,.28);
+    }
+
+    .lightbox__close{
+      position:absolute;
+      right:10px;
+      top:8px;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#111827;
+      color:#fff;
+      font-size:1.1rem;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .lightbox__close:hover{
+      text-decoration:none;
+      background:#000;
+    }
+
+    .lightbox__panel img{
+      width:100%;
+      border-radius:12px;
+      margin-top:10px;
+    }
+
+    @media (max-width: 900px){
+      .step-inner{
+        grid-template-columns:1fr;
+      }
+
+      .step-image{
+        border-right:0;
+        border-bottom:1px solid var(--line);
+      }
+
+      .links-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hero{
+        padding:26px 18px;
+      }
+
+      .section-card,
+      .step-body,
+      .step-image{
+        padding:18px;
+      }
+
+      .topbar{
+        padding-top:14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-title">Keif Timetable</div>
+          <div class="brand-subtitle">数理最適化による時間割作成システム by keifcreation</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="主要ページ">
+        <a href="index.html">トップページ</a>
+        <a href="timetable.html">時間割作成</a>
+        <a href="optimization.html">数理最適化</a>
+        <a href="faq.html">FAQ</a>
+        <a href="history.html">改良履歴</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">公式紹介ページ / システム作業の流れ</p>
+      <h1>時間割作成システムの<br>作業の流れ</h1>
+      <p class="lead">
+        このページでは、Keif Timetable を使った時間割作成の進め方を、画面例つきで紹介します。
+        事前設定、データ取込み、制約設定、事前チェック、時間割作成、登録後の調整・教室割当まで、
+        実際の操作の流れを順番に確認できます。
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener noreferrer">デモアカウントで体験・操作説明</a>
+        <a class="btn" href="index.html">トップページに戻る</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <h2>まず見る全体の流れ</h2>
+        <p class="muted">
+          基本の流れは、時間割作成までの6ステップと、その後の登録・教室割当です。
+          画像はクリックすると拡大表示できます。
+        </p>
+
+        <div class="flow-strip" aria-label="全体の流れ">
+          <div class="flow-chip">1. ログイン・新規利用校登録</div>
+          <div class="flow-chip">2. 事前設定・全データ初期化</div>
+          <div class="flow-chip">3. flat_records.csv の取込み</div>
+          <div class="flow-chip">4. 授業者設定・禁則設定</div>
+          <div class="flow-chip">5. 制約管理</div>
+          <div class="flow-chip">6. 事前チェック</div>
+          <div class="flow-chip">7. 時間割作成・出力</div>
+          <div class="flow-chip">8. 登録後の時間割調整</div>
+          <div class="flow-chip">9. 教室割当</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section step-list">
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-00">
+              <img src="assets/images/screen-00.png" alt="ログイン・新規利用校登録画面">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 1</div>
+            <h3>ログイン・新規利用校登録</h3>
+            <p>
+              はじめにログインし、試行利用や新規利用校登録を行います。
+              体験用アカウントを使えば、実データに近い形で操作の流れを確認できます。
+            </p>
+            <ul>
+              <li>まずは体験アカウントで全体の流れを確認</li>
+              <li>本格利用時は利用校情報を登録</li>
+              <li>学校ごとのデータ領域で管理</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-01">
+              <img src="assets/images/screen-01.png" alt="事前設定・全データ初期化画面">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 2</div>
+            <h3>事前設定・全データ初期化</h3>
+            <p>
+              利用年度のデータを入れ直すときや、教員禁則情報を更新した後は、
+              まず全データ初期化を行ってから再取込みします。
+            </p>
+            <ul>
+              <li>前年データや途中データを整理してから再開始</li>
+              <li>flat_records.csv の再インポート前に実行</li>
+              <li>教員禁則情報の更新後にも使用</li>
+            </ul>
+            <div class="note">
+              データ更新時に最初から流れを整えておくと、その後の作業が分かりやすくなります。
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-02">
+              <img src="assets/images/screen-02.png" alt="flat_records.csv の取込み画面">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 3</div>
+            <h3>flat_records.csv の取込み</h3>
+            <p>
+              作成の中心になるデータを `flat_records.csv` から一括取込みします。
+              設定にミスがある場合は、メッセージで確認できます。
+            </p>
+            <ul>
+              <li>科目、クラス、教員などの基礎データを一括登録</li>
+              <li>入力ミスや不整合があれば画面で把握しやすい</li>
+              <li>再取込みしやすい構成で運用可能</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-03">
+              <img src="assets/images/screen-03.png" alt="授業者設定画面">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 4</div>
+            <h3>授業者設定・禁則情報の確認</h3>
+            <p>
+              授業者の表示順や、授業に入れない時間帯の禁則情報を設定します。
+              時間枠にチェックを入れることで、そのコマには授業が入りません。
+            </p>
+            <ul>
+              <li>授業者の並び順を見やすく整理</li>
+              <li>教員禁則を画面上で確認・更新</li>
+              <li>後の時間割作成結果に大きく影響する重要工程</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-04">
+              <img src="assets/images/screen-04.png" alt="制約管理画面">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 5</div>
+            <h3>制約管理</h3>
+            <p>
+              同時展開、連続授業、固定条件など、学校ごとの時間割条件を管理します。
+              同時展開や禁則の一部は一括書込みにも対応しています。
+            </p>
+            <ul>
+              <li>同時展開や連続授業の条件を整理</li>
+              <li>固定コマや禁則条件もあわせて設定</li>
+              <li>学校ごとの特殊な条件を反映しやすい</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-05">
+              <img src="assets/images/screen-05.png" alt="事前チェック画面">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 6</div>
+            <h3>事前チェック</h3>
+            <p>
+              時間割作成前に、クラスごとに条件の不足や矛盾がないかを確認します。
+              作成前に問題点を見つけておくと、やり直しの手間を減らせます。
+            </p>
+            <ul>
+              <li>クラスごとに事前確認を実施</li>
+              <li>不足データや条件の見直しポイントを把握</li>
+              <li>作成失敗を減らすための確認工程</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-06">
+              <img src="assets/images/screen-06.png" alt="時間割作成・出力画面">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 7</div>
+            <h3>時間割作成・出力</h3>
+            <p>
+              条件確認後、時間割作成を実行します。成功すればクラス時間割が埋まり、
+              失敗した場合は原因の手がかりが表示されます。
+            </p>
+            <ul>
+              <li>クラス時間割・教員時間割を確認</li>
+              <li>成功時はそのまま内容確認へ進める</li>
+              <li>失敗時は原因表示を見て条件を見直す</li>
+            </ul>
+            <div class="note">
+              ここが「自動作成」の中心です。作成前の設定精度が結果に大きく影響します。
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-07">
+              <img src="assets/images/screen-07.png" alt="時間割登録後の時間割調整画面">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 8</div>
+            <h3>本時間割への登録・時間割調整</h3>
+            <p>
+              作成した時間割を本時間割へ登録し、その後は時間割調整に進みます。
+              時間割作成で完結できる仕様ですが、科目間の偏り等の修正、臨時時間割の作成等に利用します。
+              コマ外し、コマ入れ、残りコマの自動入れ込みという調整の流れです。
+            </p>
+            <ul>
+              <li>クラス、科目の色別表示で調整作業を進めやすい</li>
+              <li>会議、研修等の授業外の時間コマ入れに対応</li>
+              <li>臨時時間割の作成用に本時間データのバックアップが可能</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-inner">
+          <div class="step-image">
+            <a href="#img-08">
+              <img src="assets/images/screen-08.png" alt="教室割当調整">
+            </a>
+          </div>
+          <div class="step-body">
+            <div class="step-no">STEP 9</div>
+            <h3>教室割当調整</h3>
+            <p>
+              単コマ一括挿入、手動の教室設定、選択教室の自動配置、調整という流れです。
+              科目一覧が抽出され、色付き表示で作業しやすくなっています。
+            </p>
+            <ul>
+              <li>曜日や教室ごとに色分け表示で修正箇所を把握しやすい</li>
+              <li>色分け表示で修正箇所を把握しやすい</li>
+              <li>登録後の現場調整に配慮した画面</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <h2>関連ページ</h2>
+        <div class="links-grid">
+          <div class="link-card">
+            <h3>時間割作成で困りやすいこと</h3>
+            <p>学校現場で起こりやすい悩みと、システムが助けることを平易な言葉で紹介しています。</p>
+            <a class="btn" href="timetable.html">時間割作成ページを見る</a>
+          </div>
+
+          <div class="link-card">
+            <h3>数理最適化でできること</h3>
+            <p>数理最適化の考え方と、時間割作成システムの条件整理の仕組みを紹介しています。</p>
+            <a class="btn" href="optimization.html">数理最適化ページを見る</a>
+          </div>
+
+          <div class="link-card">
+            <h3>FAQ</h3>
+            <p>時間割編成ソフト、時間割作成システム、教員条件への対応など、よくある質問をまとめます。</p>
+            <a class="btn" href="faq.html">FAQを見る</a>
+          </div>
+
+          <div class="link-card">
+            <h3>トップページ</h3>
+            <p>デモ体験、資料、概要説明など、公式紹介ページの入口へ戻れます。</p>
+            <a class="btn" href="index.html">トップページへ戻る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>Keif Timetable / keifcreation</div>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="img-00" class="lightbox" aria-label="ログイン・新規利用校登録画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-00.png" alt="ログイン・新規利用校登録画面（拡大）">
+    </div>
+  </div>
+
+  <div id="img-01" class="lightbox" aria-label="事前設定・全データ初期化画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-01.png" alt="事前設定・全データ初期化画面（拡大）">
+    </div>
+  </div>
+
+  <div id="img-02" class="lightbox" aria-label="flat_records.csv の取込み画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-02.png" alt="flat_records.csv の取込み画面（拡大）">
+    </div>
+  </div>
+
+  <div id="img-03" class="lightbox" aria-label="授業者設定画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-03.png" alt="授業者設定画面（拡大）">
+    </div>
+  </div>
+
+  <div id="img-04" class="lightbox" aria-label="制約管理画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-04.png" alt="制約管理画面（拡大）">
+    </div>
+  </div>
+
+  <div id="img-05" class="lightbox" aria-label="事前チェック画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-05.png" alt="事前チェック画面（拡大）">
+    </div>
+  </div>
+
+  <div id="img-06" class="lightbox" aria-label="時間割作成・出力画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-06.png" alt="時間割作成・出力画面（拡大）">
+    </div>
+  </div>
+
+  <div id="img-07" class="lightbox" aria-label="時間割登録後の教室割当画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-07.png" alt="時間割登録後の教室割当画面（拡大）">
+    </div>
+  </div>
+
+  <div id="img-08" class="lightbox" aria-label="教室割当の調整画面 拡大表示">
+    <a class="lightbox__bg" href="#" aria-label="閉じる"></a>
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
+      <a class="lightbox__close" href="#" aria-label="閉じる">×</a>
+      <img src="assets/images/screen-08.png" alt="教室割当の調整画面（拡大）">
+    </div>
+  </div>
+</body>
+</html>

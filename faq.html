@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>時間割編成ソフト FAQ｜高校・中学校向け Keif Timetable</title>
+  <meta name="description" content="時間割編成ソフト・時間割作成ソフト・時間割作成システムについてのよくある質問をまとめています。高校・中学校向けに、教員条件、同時展開、連続授業、自動作成、調整機能などを分かりやすく説明します。">
+  <meta name="robots" content="index,follow">
+  <meta property="og:site_name" content="Keif Timetable">
+  <meta property="og:title" content="時間割編成ソフト FAQ｜高校・中学校向け Keif Timetable">
+  <meta property="og:description" content="時間割編成ソフトや時間割作成システムについてのよくある質問を、分かりやすくまとめたFAQページです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://timetable-site.onrender.com/faq.html">
+  <link rel="canonical" href="https://timetable-site.onrender.com/faq.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "時間割編成ソフトとは何ですか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "時間割編成ソフトとは、授業の重なり、教員の都合、同時展開、連続授業などの条件を整理しながら、時間割を作成しやすくするためのソフトやシステムです。Keif Timetable は、高校・中学校向けの時間割作成システムとして、こうした条件を踏まえて時間割案を作成します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "時間割作成ソフトと時間割編成ソフトは違いますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "一般には似た意味で使われることが多く、どちらも学校の時間割を作るためのソフトを指します。本ページでは、時間割作成ソフト、時間割編成ソフト、時間割作成システムをほぼ同じ意味で案内しています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "高校向けの時間割作成ソフトとして使えますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。高校・中学校向けの時間割作成システムとして、教員禁則、同時展開、連続授業、固定条件などに対応しながら時間割を作成できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "中学校でも使えますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。大規模校ほど条件は増えますが、中学校でも教員条件や授業配置の都合があるため、時間割作成支援の効果があります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "教員の都合や禁則時間に対応できますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "対応できます。教員禁則や担当条件を設定し、その条件を踏まえて時間割案を作成します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "同時展開や連続授業にも対応できますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。同時展開、連続授業、固定条件など、学校現場で時間割作成を難しくする条件を管理しながら時間割を作成できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "時間割は自動作成できますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。条件設定後に時間割作成を実行すると、クラス時間割・教員時間割の案を自動作成します。条件が矛盾している場合は、見直しが必要になることがあります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "自動作成した後に修正できますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。時間割自動作成後の調整機能で修正を行えます。必要に応じて本時間割への登録後に教室割当や調整を進めることもできます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "まず何から確認すればよいですか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "まずはデモアカウントで体験し、操作説明資料やシステム作業の流れページをご確認ください。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --panel:#ffffff;
+      --text:#1f2937;
+      --muted:#4b5563;
+      --line:#dbe3ee;
+      --blue:#2563eb;
+      --blue-dark:#1d4ed8;
+      --soft:#eef4ff;
+      --shadow:0 12px 30px rgba(2,6,23,.06);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+    }
+
+    a{
+      color:var(--blue);
+      text-decoration:none;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    .wrap{
+      width:min(1120px, 92%);
+      margin:0 auto;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:18px 0 12px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo{
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:linear-gradient(135deg, #2563eb, #60a5fa);
+      box-shadow:0 0 0 6px rgba(37,99,235,.10);
+      flex:0 0 auto;
+    }
+
+    .brand-title{
+      font-weight:800;
+      font-size:1.08rem;
+      line-height:1.2;
+    }
+
+    .brand-subtitle{
+      color:var(--muted);
+      font-size:.94rem;
+      line-height:1.4;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      display:inline-block;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--text);
+      font-weight:600;
+      font-size:.94rem;
+      text-decoration:none;
+    }
+
+    .nav a:hover{
+      border-color:#bfd3ff;
+      background:#f8fbff;
+    }
+
+    .hero{
+      margin-top:10px;
+      background:linear-gradient(180deg, #f9fbff 0%, #eef4ff 100%);
+      border:1px solid var(--line);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+      padding:34px 28px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin:0 0 14px 0;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #cfe0ff;
+      color:var(--blue-dark);
+      font-size:.92rem;
+      font-weight:700;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(2rem, 4vw, 3rem);
+      line-height:1.3;
+      letter-spacing:.01em;
+    }
+
+    .lead{
+      margin:18px 0 0 0;
+      max-width:860px;
+      color:var(--muted);
+      font-size:1.03rem;
+    }
+
+    .hero-actions{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .btn.primary{
+      background:var(--blue);
+      border-color:var(--blue);
+      color:#fff;
+    }
+
+    .btn.primary:hover{
+      background:var(--blue-dark);
+      border-color:var(--blue-dark);
+      text-decoration:none;
+    }
+
+    .btn:hover{
+      background:#f8fbff;
+      text-decoration:none;
+    }
+
+    .section{
+      margin:34px 0 0;
+    }
+
+    .section-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+
+    .section-card h2{
+      margin:0 0 10px 0;
+      font-size:1.55rem;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    .faq-list{
+      display:grid;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .faq-item{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .faq-item h3{
+      margin:0 0 10px 0;
+      font-size:1.15rem;
+      line-height:1.6;
+    }
+
+    .faq-item p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .keyword-box{
+      margin-top:18px;
+      padding:16px 18px;
+      border-left:4px solid var(--blue);
+      background:#f8fbff;
+      border-radius:12px;
+      color:var(--muted);
+    }
+
+    .links-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    .link-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .link-card h3{
+      margin:0 0 8px 0;
+      font-size:1.08rem;
+    }
+
+    .link-card p{
+      margin:0 0 14px 0;
+      color:var(--muted);
+    }
+
+    .footer{
+      padding:36px 0 44px;
+      color:var(--muted);
+      font-size:.95rem;
+      text-align:center;
+    }
+
+    @media (max-width: 760px){
+      .hero{
+        padding:26px 18px;
+      }
+
+      .section-card,
+      .faq-item{
+        padding:18px;
+      }
+
+      .links-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-title">Keif Timetable</div>
+          <div class="brand-subtitle">数理最適化による時間割作成システム by keifcreation</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="主要ページ">
+        <a href="index.html">トップページ</a>
+        <a href="timetable.html">時間割作成</a>
+        <a href="optimization.html">数理最適化</a>
+        <a href="flow.html">作業の流れ</a>
+        <a href="history.html">改良履歴</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">時間割編成ソフト / 時間割作成システム FAQ</p>
+      <h1>時間割編成ソフト・時間割作成システムについての<br>よくある質問</h1>
+      <p class="lead">
+        このページでは、Keif Timetable についてよくある質問をまとめています。
+        「時間割編成ソフト」「時間割作成ソフト」「時間割作成システム」など、
+        呼び方が違っても探している内容が分かるように、できるだけ平易な言葉で整理しています。
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener noreferrer">デモアカウントで体験・操作説明</a>
+        <a class="btn" href="index.html">トップページに戻る</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <h2>まず先にお伝えしたいこと</h2>
+        <p class="muted">
+          Keif Timetable は、高校・中学校向けの時間割作成システムです。
+          時間割編成ソフト、時間割作成ソフト、時間割作成システムという言い方の違いがあっても、
+          学校の時間割を作成・調整するためのソフトとして考えていただいて大丈夫です。
+        </p>
+
+        <div class="keyword-box">
+          このFAQでは、先生方が実際に検索しそうな
+          「時間割編成ソフト」「時間割作成ソフト」「高校向け時間割ソフト」
+          「教員条件に対応した時間割作成」などの疑問に答える形で説明しています。
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <h2>よくある質問</h2>
+
+        <div class="faq-list">
+
+          <article class="faq-item">
+            <h3>時間割編成ソフトとは何ですか。</h3>
+            <p>
+              時間割編成ソフトとは、授業の重なり、教員の都合、同時展開、連続授業などの条件を整理しながら、
+              学校の時間割を作成しやすくするためのソフトやシステムです。
+              Keif Timetable は、高校・中学校向けの時間割作成システムとして、こうした条件を踏まえて時間割案を作成します。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>時間割作成ソフトと時間割編成ソフトは違いますか。</h3>
+            <p>
+              一般には似た意味で使われることが多く、どちらも学校の時間割を作るためのソフトを指します。
+              このサイトでは、時間割作成ソフト、時間割編成ソフト、時間割作成システムをほぼ同じ意味で案内しています。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>高校向けの時間割作成ソフトとして使えますか。</h3>
+            <p>
+              はい。高校・中学校向けの時間割作成システムとして、教員禁則、同時展開、連続授業、固定条件などに対応しながら時間割を作成できます。
+              特に高校では、選択科目や複雑な条件がある場合に、作業負担の軽減につながります。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>中学校でも使えますか。</h3>
+            <p>
+              はい。中学校でも、教員条件や授業配置の都合があるため、時間割作成支援の効果があります。
+              大規模校ほど条件は増えますが、中学校でも十分に活用できます。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>教員の都合や禁則時間に対応できますか。</h3>
+            <p>
+              対応できます。教員禁則や担当条件を設定し、その条件を踏まえて時間割案を作成します。
+              教員が入れない時間帯を考慮した時間割編成が可能です。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>同時展開や連続授業にも対応できますか。</h3>
+            <p>
+              はい。同時展開、連続授業、固定条件など、学校現場で時間割作成を難しくする条件を管理しながら時間割を作成できます。
+              複雑な選択群がある場合でも、条件整理に役立ちます。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>時間割は自動作成できますか。</h3>
+            <p>
+              はい。条件設定後に時間割作成を実行すると、クラス時間割・教員時間割の案を自動作成します。
+              条件が矛盾している場合や、条件が厳しすぎる場合は、見直しが必要になることがあります。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>自動作成した後に修正できますか。</h3>
+            <p>
+              はい。時間割自動作成後の調整機能で修正を行えます。
+              必要に応じて本時間割への登録後に教室割当や調整を進めることもできます。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>時間割編成ソフトを探しています。まず何を確認すればよいですか。</h3>
+            <p>
+              まずはデモアカウントで体験し、操作説明資料やシステム作業の流れページをご確認ください。
+              実際の画面や操作順を見ると、自校で使えそうかどうかの判断がしやすくなります。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>時間割作成システムは、どのような学校に向いていますか。</h3>
+            <p>
+              毎年の時間割作成に時間がかかる学校、教員条件が多い学校、同時展開や連続授業がある学校、
+              一部修正のたびに全体調整が必要になる学校に向いています。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>時間割編成ソフトとして、教室割当まで扱えますか。</h3>
+            <p>
+              はい。時間割作成後に本時間割へ登録し、その後は教室割当や調整へ進めます。
+              自動配置と手動調整を組み合わせながら進められます。
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>無料で使えますか。</h3>
+            <p>
+              現在は試行公開（無償）として案内しています。
+              利用条件や試行公開の目的については、トップページの資料をご確認ください。
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <h2>関連ページ</h2>
+        <div class="links-grid">
+          <div class="link-card">
+            <h3>時間割作成で困りやすいこと</h3>
+            <p>学校現場で起こりやすい悩みと、システムが助けることを平易な言葉で紹介しています。</p>
+            <a class="btn" href="timetable.html">時間割作成ページを見る</a>
+          </div>
+
+          <div class="link-card">
+            <h3>数理最適化でできること</h3>
+            <p>数理最適化の考え方と、時間割作成システムの条件整理の仕組みを紹介しています。</p>
+            <a class="btn" href="optimization.html">数理最適化ページを見る</a>
+          </div>
+
+          <div class="link-card">
+            <h3>システム作業の流れ</h3>
+            <p>実際の画面例を見ながら、操作の流れを順番に確認できます。</p>
+            <a class="btn" href="flow.html">作業の流れを見る</a>
+          </div>
+
+          <div class="link-card">
+            <h3>トップページ</h3>
+            <p>デモ体験、資料、概要説明など、公式紹介ページの入口へ戻れます。</p>
+            <a class="btn" href="index.html">トップページへ戻る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>Keif Timetable / keifcreation</div>
+    </footer>
+  </div>
+</body>
+</html>
+```
