@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
@@ -73,7 +73,7 @@
         "name": "時間割は自動作成できますか。",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "はい。条件設定後に時間割作成を実行すると、クラス時間割・教員時間割の案を自動作成します。条件が矛盾している場合は、見直しが必要になることがあります。"
+          "text": "はい。条件設定後に時間割作成を実行すると、クラス時間割・教員時間割の案を自動作成します。条件が矛盾している場合や、条件が厳しすぎる場合は、見直しが必要になることがあります。"
         }
       },
       {
@@ -170,13 +170,13 @@
       line-height:1.4;
     }
 
-    .nav{
+    .page-nav{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
     }
 
-    .nav a{
+    .page-nav a{
       display:inline-block;
       padding:10px 14px;
       border:1px solid var(--line);
@@ -188,7 +188,7 @@
       text-decoration:none;
     }
 
-    .nav a:hover{
+    .page-nav a:hover{
       border-color:#bfd3ff;
       background:#f8fbff;
     }
@@ -228,11 +228,12 @@
       font-size:1.03rem;
     }
 
-    .hero-actions{
+    .button-row{
       margin-top:22px;
       display:flex;
       gap:12px;
       flex-wrap:wrap;
+      align-items:center;
     }
 
     .btn{
@@ -244,23 +245,39 @@
       background:#fff;
       color:var(--text);
       text-decoration:none;
-    }
-
-    .btn.primary{
-      background:var(--blue);
-      border-color:var(--blue);
-      color:#fff;
-    }
-
-    .btn.primary:hover{
-      background:var(--blue-dark);
-      border-color:var(--blue-dark);
-      text-decoration:none;
+      transition:.2s ease;
     }
 
     .btn:hover{
       background:#f8fbff;
       text-decoration:none;
+    }
+
+    .btn-primary{
+      background:var(--blue);
+      border-color:var(--blue);
+      color:#fff;
+    }
+
+    .btn-primary:hover{
+      background:var(--blue-dark);
+      border-color:var(--blue-dark);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      border:1px solid var(--line);
+      color:var(--blue);
+    }
+
+    .btn-secondary:hover{
+      background:#f8fbff;
+    }
+
+    .btn-ghost{
+      background:#fff;
+      border:1px solid var(--line);
+      color:var(--text);
     }
 
     .section{
@@ -318,13 +335,13 @@
       color:var(--muted);
     }
 
-    .links-grid{
+    .related-links{
       display:grid;
       grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:16px;
     }
 
-    .link-card{
+    .related-card{
       background:#fff;
       border:1px solid var(--line);
       border-radius:16px;
@@ -332,12 +349,12 @@
       box-shadow:var(--shadow);
     }
 
-    .link-card h3{
+    .related-card h3{
       margin:0 0 8px 0;
       font-size:1.08rem;
     }
 
-    .link-card p{
+    .related-card p{
       margin:0 0 14px 0;
       color:var(--muted);
     }
@@ -359,11 +376,12 @@
         padding:18px;
       }
 
-      .links-grid{
+      .related-links{
         grid-template-columns:1fr;
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -377,189 +395,190 @@
         </div>
       </div>
 
-      <nav class="nav" aria-label="主要ページ">
-        <a href="index.html">トップページ</a>
-        <a href="timetable.html">時間割作成</a>
-        <a href="optimization.html">数理最適化</a>
-        <a href="flow.html">作業の流れ</a>
-        <a href="history.html">改良履歴</a>
-      </nav>
-    </header>
+```
+  <nav class="page-nav" aria-label="主要ページ">
+    <a href="index.html">トップページ</a>
+    <a href="timetable.html">時間割作成</a>
+    <a href="optimization.html">数理最適化</a>
+    <a href="flow.html">作業の流れ</a>
+    <a href="faq.html">FAQ</a>
+    <a href="history.html">改良履歴</a>
+  </nav>
+</header>
 
-    <section class="hero">
-      <p class="eyebrow">時間割編成ソフト / 時間割作成システム FAQ</p>
-      <h1>時間割編成ソフト・時間割作成システムについての<br>よくある質問</h1>
-      <p class="lead">
-        このページでは、Keif Timetable についてよくある質問をまとめています。
-        「時間割編成ソフト」「時間割作成ソフト」「時間割作成システム」など、
-        呼び方が違っても探している内容が分かるように、できるだけ平易な言葉で整理しています。
-      </p>
+<section class="hero">
+  <p class="eyebrow">時間割編成ソフト / 時間割作成システム FAQ</p>
+  <h1>時間割編成ソフト・時間割作成システムについての<br>よくある質問</h1>
+  <p class="lead">
+    このページでは、Keif Timetable についてよくある質問をまとめています。
+    「時間割編成ソフト」「時間割作成ソフト」「時間割作成システム」など、
+    呼び方が違っても探している内容が分かるように、できるだけ平易な言葉で整理しています。
+  </p>
 
-      <div class="hero-actions">
-        <a class="btn primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener noreferrer">デモアカウントで体験・操作説明</a>
-        <a class="btn" href="index.html">トップページに戻る</a>
-      </div>
-    </section>
+  <div class="button-row">
+    <a class="btn btn-primary" href="assets/pdf/demo_account_guide.pdf" target="_blank" rel="noopener noreferrer">デモアカウントで体験・操作説明</a>
+    <a class="btn btn-secondary" href="index.html">トップページに戻る</a>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="section-card">
-        <h2>まず先にお伝えしたいこと</h2>
-        <p class="muted">
-          Keif Timetable は、高校・中学校向けの時間割作成システムです。
-          時間割編成ソフト、時間割作成ソフト、時間割作成システムという言い方の違いがあっても、
-          学校の時間割を作成・調整するためのソフトとして考えていただいて大丈夫です。
+<section class="section">
+  <div class="section-card">
+    <h2>まず先にお伝えしたいこと</h2>
+    <p class="muted">
+      Keif Timetable は、高校・中学校向けの時間割作成システムです。
+      時間割編成ソフト、時間割作成ソフト、時間割作成システムという言い方の違いがあっても、
+      学校の時間割を作成・調整するためのソフトとして考えていただいて大丈夫です。
+    </p>
+
+    <div class="keyword-box">
+      このFAQでは、先生方が実際に検索しそうな
+      「時間割編成ソフト」「時間割作成ソフト」「高校向け時間割ソフト」
+      「教員条件に対応した時間割作成」などの疑問に答える形で説明しています。
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-card">
+    <h2>よくある質問</h2>
+
+    <div class="faq-list">
+      <article class="faq-item">
+        <h3>時間割編成ソフトとは何ですか。</h3>
+        <p>
+          時間割編成ソフトとは、授業の重なり、教員の都合、同時展開、連続授業などの条件を整理しながら、
+          学校の時間割を作成しやすくするためのソフトやシステムです。
+          Keif Timetable は、高校・中学校向けの時間割作成システムとして、こうした条件を踏まえて時間割案を作成します。
         </p>
+      </article>
 
-        <div class="keyword-box">
-          このFAQでは、先生方が実際に検索しそうな
-          「時間割編成ソフト」「時間割作成ソフト」「高校向け時間割ソフト」
-          「教員条件に対応した時間割作成」などの疑問に答える形で説明しています。
-        </div>
+      <article class="faq-item">
+        <h3>時間割作成ソフトと時間割編成ソフトは違いますか。</h3>
+        <p>
+          一般には似た意味で使われることが多く、どちらも学校の時間割を作るためのソフトを指します。
+          このサイトでは、時間割作成ソフト、時間割編成ソフト、時間割作成システムをほぼ同じ意味で案内しています。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>高校向けの時間割作成ソフトとして使えますか。</h3>
+        <p>
+          はい。高校・中学校向けの時間割作成システムとして、教員禁則、同時展開、連続授業、固定条件などに対応しながら時間割を作成できます。
+          特に高校では、選択科目や複雑な条件がある場合に、作業負担の軽減につながります。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>中学校でも使えますか。</h3>
+        <p>
+          はい。中学校でも、教員条件や授業配置の都合があるため、時間割作成支援の効果があります。
+          大規模校ほど条件は増えますが、中学校でも十分に活用できます。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>教員の都合や禁則時間に対応できますか。</h3>
+        <p>
+          対応できます。教員禁則や担当条件を設定し、その条件を踏まえて時間割案を作成します。
+          教員が入れない時間帯を考慮した時間割編成が可能です。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>同時展開や連続授業にも対応できますか。</h3>
+        <p>
+          はい。同時展開、連続授業、固定条件など、学校現場で時間割作成を難しくする条件を管理しながら時間割を作成できます。
+          複雑な選択群がある場合でも、条件整理に役立ちます。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>時間割は自動作成できますか。</h3>
+        <p>
+          はい。条件設定後に時間割作成を実行すると、クラス時間割・教員時間割の案を自動作成します。
+          条件が矛盾している場合や、条件が厳しすぎる場合は、見直しが必要になることがあります。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>自動作成した後に修正できますか。</h3>
+        <p>
+          はい。時間割自動作成後の調整機能で修正を行えます。
+          必要に応じて本時間割への登録後に教室割当や調整を進めることもできます。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>時間割編成ソフトを探しています。まず何を確認すればよいですか。</h3>
+        <p>
+          まずはデモアカウントで体験し、操作説明資料やシステム作業の流れページをご確認ください。
+          実際の画面や操作順を見ると、自校で使えそうかどうかの判断がしやすくなります。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>時間割作成システムは、どのような学校に向いていますか。</h3>
+        <p>
+          毎年の時間割作成に時間がかかる学校、教員条件が多い学校、同時展開や連続授業がある学校、
+          一部修正のたびに全体調整が必要になる学校に向いています。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>時間割編成ソフトとして、教室割当まで扱えますか。</h3>
+        <p>
+          はい。時間割作成後に本時間割へ登録し、その後は教室割当や調整へ進めます。
+          自動配置と手動調整を組み合わせながら進められます。
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>無料で使えますか。</h3>
+        <p>
+          現在は試行公開（無償）として案内しています。
+          利用条件や試行公開の目的については、トップページの資料をご確認ください。
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-card">
+    <h2>関連ページ</h2>
+    <div class="related-links">
+      <div class="related-card">
+        <h3>時間割作成で困りやすいこと</h3>
+        <p>学校現場で起こりやすい悩みと、システムが助けることを平易な言葉で紹介しています。</p>
+        <a class="btn btn-secondary" href="timetable.html">時間割作成ページを見る</a>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="section-card">
-        <h2>よくある質問</h2>
-
-        <div class="faq-list">
-
-          <article class="faq-item">
-            <h3>時間割編成ソフトとは何ですか。</h3>
-            <p>
-              時間割編成ソフトとは、授業の重なり、教員の都合、同時展開、連続授業などの条件を整理しながら、
-              学校の時間割を作成しやすくするためのソフトやシステムです。
-              Keif Timetable は、高校・中学校向けの時間割作成システムとして、こうした条件を踏まえて時間割案を作成します。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>時間割作成ソフトと時間割編成ソフトは違いますか。</h3>
-            <p>
-              一般には似た意味で使われることが多く、どちらも学校の時間割を作るためのソフトを指します。
-              このサイトでは、時間割作成ソフト、時間割編成ソフト、時間割作成システムをほぼ同じ意味で案内しています。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>高校向けの時間割作成ソフトとして使えますか。</h3>
-            <p>
-              はい。高校・中学校向けの時間割作成システムとして、教員禁則、同時展開、連続授業、固定条件などに対応しながら時間割を作成できます。
-              特に高校では、選択科目や複雑な条件がある場合に、作業負担の軽減につながります。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>中学校でも使えますか。</h3>
-            <p>
-              はい。中学校でも、教員条件や授業配置の都合があるため、時間割作成支援の効果があります。
-              大規模校ほど条件は増えますが、中学校でも十分に活用できます。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>教員の都合や禁則時間に対応できますか。</h3>
-            <p>
-              対応できます。教員禁則や担当条件を設定し、その条件を踏まえて時間割案を作成します。
-              教員が入れない時間帯を考慮した時間割編成が可能です。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>同時展開や連続授業にも対応できますか。</h3>
-            <p>
-              はい。同時展開、連続授業、固定条件など、学校現場で時間割作成を難しくする条件を管理しながら時間割を作成できます。
-              複雑な選択群がある場合でも、条件整理に役立ちます。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>時間割は自動作成できますか。</h3>
-            <p>
-              はい。条件設定後に時間割作成を実行すると、クラス時間割・教員時間割の案を自動作成します。
-              条件が矛盾している場合や、条件が厳しすぎる場合は、見直しが必要になることがあります。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>自動作成した後に修正できますか。</h3>
-            <p>
-              はい。時間割自動作成後の調整機能で修正を行えます。
-              必要に応じて本時間割への登録後に教室割当や調整を進めることもできます。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>時間割編成ソフトを探しています。まず何を確認すればよいですか。</h3>
-            <p>
-              まずはデモアカウントで体験し、操作説明資料やシステム作業の流れページをご確認ください。
-              実際の画面や操作順を見ると、自校で使えそうかどうかの判断がしやすくなります。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>時間割作成システムは、どのような学校に向いていますか。</h3>
-            <p>
-              毎年の時間割作成に時間がかかる学校、教員条件が多い学校、同時展開や連続授業がある学校、
-              一部修正のたびに全体調整が必要になる学校に向いています。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>時間割編成ソフトとして、教室割当まで扱えますか。</h3>
-            <p>
-              はい。時間割作成後に本時間割へ登録し、その後は教室割当や調整へ進めます。
-              自動配置と手動調整を組み合わせながら進められます。
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>無料で使えますか。</h3>
-            <p>
-              現在は試行公開（無償）として案内しています。
-              利用条件や試行公開の目的については、トップページの資料をご確認ください。
-            </p>
-          </article>
-
-        </div>
+      <div class="related-card">
+        <h3>数理最適化でできること</h3>
+        <p>数理最適化の考え方と、時間割作成システムの条件整理の仕組みを紹介しています。</p>
+        <a class="btn btn-secondary" href="optimization.html">数理最適化ページを見る</a>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="section-card">
-        <h2>関連ページ</h2>
-        <div class="links-grid">
-          <div class="link-card">
-            <h3>時間割作成で困りやすいこと</h3>
-            <p>学校現場で起こりやすい悩みと、システムが助けることを平易な言葉で紹介しています。</p>
-            <a class="btn" href="timetable.html">時間割作成ページを見る</a>
-          </div>
-
-          <div class="link-card">
-            <h3>数理最適化でできること</h3>
-            <p>数理最適化の考え方と、時間割作成システムの条件整理の仕組みを紹介しています。</p>
-            <a class="btn" href="optimization.html">数理最適化ページを見る</a>
-          </div>
-
-          <div class="link-card">
-            <h3>システム作業の流れ</h3>
-            <p>実際の画面例を見ながら、操作の流れを順番に確認できます。</p>
-            <a class="btn" href="flow.html">作業の流れを見る</a>
-          </div>
-
-          <div class="link-card">
-            <h3>トップページ</h3>
-            <p>デモ体験、資料、概要説明など、公式紹介ページの入口へ戻れます。</p>
-            <a class="btn" href="index.html">トップページへ戻る</a>
-          </div>
-        </div>
+      <div class="related-card">
+        <h3>システム作業の流れ</h3>
+        <p>実際の画面例を見ながら、操作の流れを順番に確認できます。</p>
+        <a class="btn btn-secondary" href="flow.html">作業の流れを見る</a>
       </div>
-    </section>
 
-    <footer class="footer">
-      <div>Keif Timetable / keifcreation</div>
-    </footer>
+      <div class="related-card">
+        <h3>トップページ</h3>
+        <p>デモ体験、資料、概要説明など、公式紹介ページの入口へ戻れます。</p>
+        <a class="btn btn-secondary" href="index.html">トップページへ戻る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>Keif Timetable / keifcreation</div>
+</footer>
+```
+
   </div>
 </body>
 </html>
-```
